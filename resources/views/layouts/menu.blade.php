@@ -87,7 +87,7 @@
             <!-- Forms & Tables -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Data &amp; Analytics</span></li>
             <!-- Forms -->
-            <li class="menu-item">
+{{--             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div data-i18n="Form Elements">Internet fərqləri</div>
@@ -104,14 +104,14 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> --}}
 
 
 
            
             <!-- Tables -->
-            <li class="menu-item">
-              <a href="{{route('internet.analytics')}}" class="menu-link">
+            <li class="menu-item active">
+              <a href="{{route('internet.analytics')}}" class="menu-link ">
                 <i class="menu-icon tf-icons bx bx-table"></i>
                 <div data-i18n="Tables">İnternet fərqləri</div>
               </a>
