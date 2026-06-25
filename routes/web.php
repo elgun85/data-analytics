@@ -13,3 +13,4 @@ Route::get('/', function () {
 //     ->name('internet.analytics');
 
     Route::get('/internet-analytics',[InternetAnalyticsController::class,'index'])->name('internet.analytics');
+    Route::get('/internet-analytics/export', [InternetAnalyticsController::class, 'exportExcel'])->name('internet.analytics.export');

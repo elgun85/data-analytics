@@ -17,8 +17,11 @@ class InternetAnalyticsService
     public function getProcessedData()
     {
          return   $billing  = $this->analyticsRepo->getBillingReport();
+    }
 
-
+    public function getExcelData()
+    {
+        return $this->analyticsRepo->getBillingReport();
     }
 
 }
