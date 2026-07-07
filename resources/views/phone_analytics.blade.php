@@ -12,9 +12,9 @@
                     <!-- Hoverable Table rows -->
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0">Internet Billing,MHM və LKŞ arasıda fərqlər</h5>
+                            <h5 class="mb-0">MHM və LKŞ arasıda telefon xidmətləri arasında hesablanma fərqləri</h5>
 
-                            <a href="{{ route('internet.analytics.export') }}" class="btn rounded-pill btn-outline-primary">
+                            <a href="{{ route('phone.analytics.export') }}" class="btn rounded-pill btn-outline-primary">
                                 Excel Yüklə
                             </a>
                         </div>
@@ -25,11 +25,9 @@
                                 <thead>
                                     <tr>
                                         <th>Telefon</th>
-                                        <th>Billing</th>
                                         <th>MHM</th>
                                         <th>LKŞ</th>
-                                        <th>Bill_Mhm fərqi</th>
-                                        <th>Bill_LKŞ fərqi</th>
+                                        <th>Fərq</th>
                                         <th>Kateqoriya</th>
                                     </tr>
                                 </thead>
@@ -38,12 +36,11 @@
                                         <tr>
                                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
                                                 <strong>{{ $item->telefon }}
-                                                </strong></td>
-                                            <td>{{ $item->bill_summa }}</td>
+                                                </strong>
+                                            </td>
                                             <td>{{ $item->mhm_summa }}</td>
                                             <td>{{ $item->lks_summa }}</td>
-                                            <td>{{ $item->bill_mhm_ferq }}</td>
-                                            <td>{{ $item->bill_lks_ferq }}</td>
+                                            <td>{{ $item->ferq }}</td>
                                             <td>{{ $item->abonent }}</td>
 
                                         </tr>

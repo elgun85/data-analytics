@@ -75,10 +75,11 @@ class InternetAnalyticsRepository
         $mhm = DB::table('mhm_hesablamas')
             ->select(
                 'telefon',
+                'abonent',
                 DB::raw('SUM(summa) as mhm_summa')
             )
             ->where('kod', 793)
-            ->groupBy('telefon');
+            ->groupBy('telefon','abonent');
 
         $gh8 = DB::table('gh8_lks')
             ->select(
@@ -98,7 +99,7 @@ class InternetAnalyticsRepository
                 $join->on('p.telefon', '=', 'gh8.NOTEL');
             })
             ->select(
-                'p.telefon',
+                'p.telefon','mhm.abonent',
                 DB::raw('COALESCE(b.abune,0) as bill_summa'),
                 DB::raw('COALESCE(mhm.mhm_summa,0) as mhm_summa'),
                 DB::raw('COALESCE(gh8.gh8_summa,0) as lks_summa'),

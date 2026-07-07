@@ -1,27 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Exports;
 
-use App\Services\InternetAnalyticsService;
-use Symfony\Component\HttpFoundation\StreamedResponse;
+use App\Services\PhoneAnalyticsService;
 
-class InternetAnalyticsController extends Controller
+
+class BaseCsvExport
 {
-    protected $analyticsService;
-    public function __construct(InternetAnalyticsService $analyticsService)
+    protected PhoneAnalyticsService $phoneAnalyticsService;
+
+    public function __construct(PhoneAnalyticsService $phoneAnalyticsService)
     {
-        $this->analyticsService = $analyticsService;
+        $this->phoneAnalyticsService = $phoneAnalyticsService;
     }
 
-    public function index()
-    {
-        $data = $this->analyticsService->getProcessedData();
-        return view('internet_analytics', compact('data'));
-    }
-
-
-
-    public function exportExcel(): StreamedResponse
+    public  function exportPhoneData()
     {
         $headers = [
             "Content-type"        => "text/csv; charset=UTF-8",
@@ -37,17 +30,15 @@ class InternetAnalyticsController extends Controller
             // Excel-də Azərbaycan şriftlərinin (ö, ç, ş, ı...) düzgün görünməsi üçün BOM əlavə edirik
             fprintf($file, chr(0xEF) . chr(0xBB) . chr(0xBF));
             // Sütun başlığı (Excel-in sütunlara düzgün ayırması üçün separator olaraq vergül istifadə edirik)
-            fputcsv($file, ['Telefon', 'Billing', 'MHM', 'LKŞ', 'Bill_Mhm Fərqi', 'Bill_LKŞ Fərqi','Kateqoriya'], ';');
+            fputcsv($file, ['Telefon',  'MHM', 'LKŞ', 'Fərq', 'Kateqoriya'], ';');
             //Data gelir
-            $data = $this->analyticsService->getExcelData();
+            $data = $this->phoneAnalyticsService->getCvcData();
             foreach ($data as $item) {
                 fputcsv($file, [
                     $item->telefon,
-                    $item->bill_summa,
                     $item->mhm_summa,
                     $item->lks_summa,
-                    $item->bill_mhm_ferq,
-                    $item->bill_lks_ferq,
+                    $item->ferq,
                     $item->abonent
 
                 ], ';');

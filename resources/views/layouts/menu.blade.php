@@ -87,24 +87,24 @@
             <!-- Forms & Tables -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Data &amp; Analytics</span></li>
             <!-- Forms -->
-{{--             <li class="menu-item">
+            <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div data-i18n="Form Elements">Internet fərqləri</div>
+                <div data-i18n="Form Elements">Internet,telefon fərqləri</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="forms-basic-inputs.html" class="menu-link">
-                    <div data-i18n="Basic Inputs">Basic Inputs</div>
+                  <a href="{{route('internet.analytics')}}" class="menu-link">
+                <div data-i18n="Tables">İnternet fərqləri</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="forms-input-groups.html" class="menu-link">
-                    <div data-i18n="Input groups">Input groups</div>
+                  <a href="{{route('phone.analytics')}}" class="menu-link">
+                    <div data-i18n="Input groups">Telefon fərqləri</div>
                   </a>
                 </li>
               </ul>
-            </li> --}}
+            </li>
 
 
 
