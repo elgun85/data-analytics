@@ -22,7 +22,6 @@ class PhoneAnalyticsController extends Controller
     public function index()
     {
         $data = $this->analyticsPhones->getProcessedPhone();
-        // dd($data);
         return view('phone_analytics', compact('data'));
     }
 

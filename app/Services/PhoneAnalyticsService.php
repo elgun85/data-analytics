@@ -22,4 +22,5 @@ class PhoneAnalyticsService
     {
         return    $this->analyticsPhone->GetAnalyticsPhone();
     }
+    
 }
